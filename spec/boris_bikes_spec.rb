@@ -17,9 +17,7 @@ describe DockingStation do
 
 	it "raises and error when the dock is full" do
 		docking_station = DockingStation.new
-		bike1 = Bike.new
-		bike2 = Bike.new
-		docking_station.dock_bike(bike1)
-		expect {docking_station.dock_bike(bike2)}.to raise_error("This dock is full!")
+		20.times {docking_station.dock_bike(Bike.new)}
+		expect {docking_station.dock_bike(Bike.new)}.to raise_error("This dock is full!")
 	end
 end
