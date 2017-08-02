@@ -7,13 +7,23 @@ class DockingStation
 	end
 
 	def dock_bike(bike)
-		raise "This dock is full!" if @bikes.size == 20
+		raise "This dock is full!" if full?
 		@bikes << bike
 	end
 
 	def release_bike
-		raise "Not enough bikes!" if @bikes.size == 0
+		raise "Not enough bikes!" if empty?
 		@bikes.pop
+	end
+
+	private
+	
+	def full?
+		@bikes.size >= 20
+	end
+
+	def empty?
+		@bikes.size == 0
 	end
 end
 
