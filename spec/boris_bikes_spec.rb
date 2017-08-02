@@ -25,4 +25,11 @@ describe DockingStation do
 		docking_station = DockingStation.new
 		expect(docking_station.capacity).to eq 20
 	end
+
+	it "checks if bikes are not working" do
+		docking_station = DockingStation.new
+		bike = Bike.new
+		docking_station.dock_bike(bike, false)
+		expect(docking_station.bikes[0].working?).to eq false
+	end
 end

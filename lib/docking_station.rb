@@ -8,8 +8,9 @@ class DockingStation
 		@capacity = capacity
 	end
 
-	def dock_bike(bike)
+	def dock_bike(bike, working = true)
 		raise "This dock is full!" if full?
+		bike.working = working
 		@bikes << bike
 	end
 
@@ -30,7 +31,14 @@ class DockingStation
 end
 
 class Bike
+
+	attr_accessor :working
+
+	def initialize
+		@working = true
+	end
+
 	def working?
-		true
+		@working
 	end
 end
