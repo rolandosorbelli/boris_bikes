@@ -1,9 +1,9 @@
 class DockingStation
 
 	attr_reader :bikes, :bike, :capacity
-	DEFAULT_CAPACITY = 20
+	DEFAULT_CAPACITY = 20 # <--- Default capacity of the dock ~
 
-	def initialize(capacity = DEFAULT_CAPACITY)
+	def initialize(capacity = DEFAULT_CAPACITY) # <--- Initializes the array that represents the dock and its capacity ~
 		@bikes = []
 		@capacity = capacity
 	end
@@ -14,18 +14,19 @@ class DockingStation
 		@bikes << bike
 	end
 
-	def release_bike
+	def release_bike(bike)
 		raise "Not enough bikes!" if empty?
+		@bikes
 		@bikes.pop
 	end
 
 	private
 
-	def full?
+	def full? # <--- Default capacity of a full dock ~
 		@bikes.size >= DEFAULT_CAPACITY
 	end
 
-	def empty?
+	def empty? # <--- Default capacity of an empty dock ~
 		@bikes.size == 0
 	end
 end
