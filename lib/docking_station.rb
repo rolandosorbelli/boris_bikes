@@ -72,8 +72,8 @@ class Garage
 	end
 
 	def deliver_broken_bikes
-		@van
-		garage.push van.delete_at(0)
+		stored_bikes = van.each { | x | van.delete_at(x) }
+		@garage << stored_bikes
 	end
 
 end
