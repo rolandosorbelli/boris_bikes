@@ -10,11 +10,10 @@ class DockingStation
 
 	def dock_bike(bike, working = true)
 		raise "This dock is full!" if full?
-		bike.working = working
 		@bikes << bike
 	end
 
-	def release_bike(bike)
+	def release_bike
 		raise "Not enough bikes!" if empty?
 		@bikes
 		@bikes.pop
@@ -29,6 +28,7 @@ class DockingStation
 	def empty? # <--- Default capacity of an empty dock ~
 		@bikes.size == 0
 	end
+
 end
 
 class Bike
@@ -36,10 +36,11 @@ class Bike
 	attr_accessor :working
 
 	def initialize
-		@working = true
+		@working
 	end
 
 	def working?
 		@working
 	end
+
 end
