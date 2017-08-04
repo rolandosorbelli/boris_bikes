@@ -44,5 +44,5 @@ describe DockingStation do
 		subject.dock_bike bike
 		expect(subject.release_bike).to be bike
 	end
-	
+
 end

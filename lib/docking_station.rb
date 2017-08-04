@@ -1,6 +1,6 @@
 class DockingStation
 
-	attr_reader :bikes, :bike, :capacity
+	attr_accessor :bikes, :bike, :capacity
 	DEFAULT_CAPACITY = 20 # <--- Default capacity of the dock ~
 
 	def initialize(capacity = DEFAULT_CAPACITY) # <--- Initializes the array that represents the dock and its capacity ~
@@ -41,6 +41,39 @@ class Bike
 
 	def working?
 		@working
+	end
+
+end
+
+class Van
+
+	attr_accessor :van
+
+	def initialize
+		@van = []
+		
+	end
+
+	def take_broken_bikes(bike)
+		if bike.working? != true
+			@van << bike
+		else raise "This bike is working perfectly, no need to fix it!"
+		end
+	end
+
+end
+
+class Garage
+
+	attr_accessor :garage
+
+	def initialize
+		@garage = []
+	end
+
+	def deliver_broken_bikes
+		@van
+		garage.push van.delete_at(0)
 	end
 
 end
